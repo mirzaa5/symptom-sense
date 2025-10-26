@@ -24,14 +24,14 @@ console.log(`📜 Running: ${scriptName}\n`);
 if (platform !== 'win32') {
   const { execSync } = require('child_process');
   try {
-    execSync(`chmod +x ${scriptName}`, { stdio: 'ignore' });
+    execSync(`chmod +x ./${scriptName}`, { stdio: 'ignore' });
   } catch (err) {
     // Ignore errors if chmod fails
   }
 }
 
-// Spawn the appropriate script
-const child = spawn(scriptName, [], {
+// Spawn the appropriate script with proper path
+const child = spawn(`./${scriptName}`, [], {
   stdio: 'inherit',
   shell: true
 });

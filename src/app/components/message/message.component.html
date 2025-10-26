@@ -1,6 +1,6 @@
 <div class="message-wrapper" [class.user-message]="message.type === 'user'" [class.ai-message]="message.type === 'ai'">
   <div class="message-bubble">
-    <div class="message-content">{{ message.content }}</div>
+    <div class="message-content" [innerHTML]="formattedContent"></div>
     @if (message.image) {
       <img [src]="message.image" alt="Uploaded image" class="message-image" />
     }

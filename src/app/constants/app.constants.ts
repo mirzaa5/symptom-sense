@@ -27,6 +27,12 @@ export const AI_MODELS = {
     apiUrl: 'YOUR_ASHISH_API_URL',
     model: 'ss-lumalight-v1',
   },
+  AGENTIC: {
+    name: 'Agentic Medical Assistant (Local)',
+    apiUrl: 'http://localhost:8000/api/process_input',
+    model: 'agentic-multi-agent',
+    description: 'Local FastAPI backend with RAG, Image Analysis, Web Search, and Confidence Scoring'
+  },
 };
 
 export const COLORS = {
