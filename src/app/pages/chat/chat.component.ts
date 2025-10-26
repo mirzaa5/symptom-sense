@@ -32,7 +32,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewChecked {
   imagePreviewUrl: string | null = null;
   isRecording: boolean = false;
   isVoiceSupported: boolean = false;
-  selectedModel: 'MISTRAL' | 'GEMINI' | 'ASHISH' = 'MISTRAL';
+  selectedModel: 'MISTRAL' | 'GEMINI' | 'ASHISH' | 'AGENTIC' = 'AGENTIC';
 
   private sessionId: string = '';
   private subscriptions: Subscription[] = [];
@@ -49,6 +49,8 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewChecked {
   ngOnInit(): void {
     this.sessionId = this.sessionService.getSessionId();
     this.isVoiceSupported = this.voiceService.isBrowserSupported();
+    // Set the chat service to use the selected model
+    this.chatService.setProvider(this.selectedModel);
   }
 
   ngAfterViewChecked(): void {
@@ -248,6 +250,31 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewChecked {
   onModelChange(): void {
     this.chatService.setProvider(this.selectedModel);
     console.log('AI Model changed to:', this.selectedModel);
+  }
+
+  startNewChat(): void {
+    // Clear all messages
+    this.messages = [];
+    
+    // Clear input and image
+    this.inputMessage = '';
+    this.selectedImage = null;
+    this.imagePreviewUrl = null;
+    if (this.fileInput) {
+      this.fileInput.nativeElement.value = '';
+    }
+    
+    // Clear any errors
+    this.showError = false;
+    this.errorMessage = '';
+    
+    // Generate new session ID
+    this.sessionId = this.sessionService.getSessionId();
+    
+    // Reset session timer
+    this.sessionService.resetTimer();
+    
+    console.log('New chat started with session ID:', this.sessionId);
   }
 
   goToLanding(): void {

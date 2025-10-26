@@ -1,8 +1,61 @@
 .message-wrapper {
   display: flex;
   margin-bottom: 20px;
-  padding: 0 32px;
-  animation: slideIn 0.4s ease;
+  padding: 0 24px;
+  animation: fadeInUp 0.3s ease;
+}
+
+.message-content ::ng-deep h1,
+.message-content ::ng-deep h2,
+.message-content ::ng-deep h3 {
+  margin: 16px 0 8px 0;
+  font-weight: 600;
+  color: inherit;
+}
+
+.message-content ::ng-deep h1 { font-size: 1.5rem; }
+.message-content ::ng-deep h2 { font-size: 1.3rem; }
+.message-content ::ng-deep h3 { font-size: 1.1rem; }
+
+.message-content ::ng-deep strong {
+  font-weight: 700;
+  color: inherit;
+}
+
+.message-content ::ng-deep em {
+  font-style: italic;
+}
+
+.message-content ::ng-deep a {
+  color: #667eea;
+  text-decoration: underline;
+  word-break: break-word;
+}
+
+.message-content ::ng-deep a:hover {
+  color: #764ba2;
+}
+
+.message-content ::ng-deep ul,
+.message-content ::ng-deep ol {
+  margin: 12px 0;
+  padding-left: 24px;
+}
+
+.message-content ::ng-deep li {
+  margin: 6px 0;
+  line-height: 1.6;
+}
+
+.message-content ::ng-deep hr {
+  margin: 16px 0;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.message-content ::ng-deep p {
+  margin: 12px 0;
+  line-height: 1.6;
 }
 
 @keyframes slideIn {

@@ -12,13 +12,19 @@
       </button>
       <h1 class="chat-title">SymptomSense</h1>
     </div>
-    <div class="model-selector">
-      <label for="ai-model">AI Model:</label>
-      <select id="ai-model" [(ngModel)]="selectedModel" (change)="onModelChange()" class="model-dropdown">
-        <option value="MISTRAL">Mistral Vision</option>
-        <option value="GEMINI">ss-novavox-v1</option>
-        <option value="ASHISH">ss-lumalight-v1</option>
-      </select>
+    <div class="header-right">
+      <button class="new-chat-button" (click)="startNewChat()" aria-label="Start new chat" title="Start new chat">
+        ✨ New Chat
+      </button>
+      <div class="model-selector">
+        <label for="ai-model">AI Model:</label>
+        <select id="ai-model" [(ngModel)]="selectedModel" (change)="onModelChange()" class="model-dropdown">
+          <option value="AGENTIC">🏥 Agentic Medical Assistant (Local)</option>
+          <option value="MISTRAL">Mistral Vision</option>
+          <option value="GEMINI">ss-novavox-v1</option>
+          <option value="ASHISH">ss-lumalight-v1</option>
+        </select>
+      </div>
     </div>
   </header>
 
